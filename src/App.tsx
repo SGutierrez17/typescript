@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import BasicComponents from "./basic-components";
+import PersonIdentity from "./person-identity";
+import Counter from "./counter";
+import Event from "./event";
+import ConditionalRender from "./conditional-render";
+import Context from "./context";
+import ReadOnly from "./readonly";
+import AliasesUnion from "./aliases-union";
+import Tuple from "./tuple-type";
+import List from "./t-list";
 
 function App() {
+  const exercise1 = ['Interface', 'Type', 'Functions', 'Classes']
+  const stringArray = ['One', 'Two', 'Three'];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BasicComponents basic={exercise1}/>
+      <PersonIdentity name="Sergio" age="27" hobbies={['futbol', 'billar', 'comer']}/>
+      <Counter />
+      <Event />
+      <ConditionalRender name="Sergio" age="?" car="BMW" />
+      <Context />
+      <List items={stringArray} renderItem={(item) => <span>{item}</span>}/>
+      <ReadOnly name={['Sergio' , ' Gutierrez']}/>
+      <AliasesUnion ubication={'Bucaramanga'}/>
+      <Tuple />
+    </>
   );
 }
 
